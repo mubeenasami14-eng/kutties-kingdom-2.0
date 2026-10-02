@@ -8,6 +8,7 @@ import Gallery from './components/Gallery'
 import Booking from './components/Booking'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CallButton from './components/CallButton'
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -29,6 +30,7 @@ export default function App() {
       <Booking />
       <Contact />
       <Footer />
+      <CallButton />
     </>
   )
 }
