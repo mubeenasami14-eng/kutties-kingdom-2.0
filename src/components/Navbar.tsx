@@ -12,7 +12,8 @@ export default function Navbar({ scrolled }: NavbarProps) {
     { label: 'About', href: '#about' },
     { label: 'Games', href: '#games' },
     { label: 'Pricing', href: '#pricing' },
-    { label: 'Gallery', href: '#gallery' },
+    { label: 'Reviews', href: '#reviews' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' },
   ]
 

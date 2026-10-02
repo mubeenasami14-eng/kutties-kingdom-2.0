@@ -14,9 +14,12 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Quick Links</h4>
             <a href="#about">About Us</a>
+            <a href="#why-us">Why Choose Us</a>
             <a href="#games">Games</a>
             <a href="#pricing">Pricing</a>
             <a href="#gallery">Gallery</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#faq">FAQ</a>
             <a href="#booking">Book a Slot</a>
           </div>
 

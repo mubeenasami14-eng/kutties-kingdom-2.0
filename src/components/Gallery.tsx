@@ -1,3 +1,5 @@
+import Reveal from './Reveal'
+
 const galleryImages = [
   { url: 'https://images.pexels.com/photos/5393654/pexels-photo-5393654.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', alt: 'Child laughing in a ball pit', large: true },
   { url: 'https://images.pexels.com/photos/5488878/pexels-photo-5488878.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', alt: 'Child on a colorful slide', large: false },
@@ -13,21 +15,25 @@ export default function Gallery() {
   return (
     <section className="section gallery" id="gallery">
       <div className="container">
-        <div className="section-header">
-          <span className="section-tag">Gallery</span>
-          <h2 className="section-title">
-            Moments of <span className="highlight">Joy</span>
-          </h2>
-          <p className="section-subtitle">
-            See the smiles and laughter that fill Kutties Kingdom every day!
-          </p>
-        </div>
+        <Reveal>
+          <div className="section-header">
+            <span className="section-tag">Gallery</span>
+            <h2 className="section-title">
+              Moments of <span className="highlight">Joy</span>
+            </h2>
+            <p className="section-subtitle">
+              See the smiles and laughter that fill Kutties Kingdom every day!
+            </p>
+          </div>
+        </Reveal>
 
         <div className="gallery-grid">
           {galleryImages.map((img, i) => (
-            <div key={i} className={`gallery-item ${img.large ? 'large' : ''}`}>
-              <img src={img.url} alt={img.alt} loading="lazy" />
-            </div>
+            <Reveal key={i} delay={(i % 4) * 80}>
+              <div className={`gallery-item ${img.large ? 'large' : ''}`}>
+                <img src={img.url} alt={img.alt} loading="lazy" />
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

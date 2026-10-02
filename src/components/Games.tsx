@@ -1,3 +1,5 @@
+import Reveal from './Reveal'
+
 interface GameItem {
   name: string
   description: string
@@ -48,27 +50,37 @@ export default function Games() {
   return (
     <section className="section games" id="games">
       <div className="container">
-        <div className="section-header">
-          <span className="section-tag">Games & Activities</span>
-          <h2 className="section-title">
-            Endless <span className="highlight">Fun</span> Awaits!
-          </h2>
-          <p className="section-subtitle">
-            From soft play adventures to exciting arcade games, there's something for every child at Kutties Kingdom.
-          </p>
-        </div>
+        <Reveal>
+          <div className="section-header">
+            <span className="section-tag">Games & Activities</span>
+            <h2 className="section-title">
+              Endless <span className="highlight">Fun</span> Awaits!
+            </h2>
+            <p className="section-subtitle">
+              From soft play adventures to exciting arcade games, there's something for every child at Kutties Kingdom.
+            </p>
+          </div>
+        </Reveal>
 
-        <h3 className="games-category-title">🎪 Soft Play Zone</h3>
+        <Reveal>
+          <h3 className="games-category-title">🎪 Soft Play Zone</h3>
+        </Reveal>
         <div className="games-grid">
-          {softPlayGames.map((game) => (
-            <GameCard key={game.name} game={game} />
+          {softPlayGames.map((game, i) => (
+            <Reveal key={game.name} delay={i * 60}>
+              <GameCard game={game} />
+            </Reveal>
           ))}
         </div>
 
-        <h3 className="games-category-title">🕹️ Arcade Games</h3>
+        <Reveal>
+          <h3 className="games-category-title">🕹️ Arcade Games</h3>
+        </Reveal>
         <div className="games-grid">
-          {arcadeGames.map((game) => (
-            <GameCard key={game.name} game={game} />
+          {arcadeGames.map((game, i) => (
+            <Reveal key={game.name} delay={i * 60}>
+              <GameCard game={game} />
+            </Reveal>
           ))}
         </div>
       </div>
