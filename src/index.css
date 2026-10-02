@@ -448,7 +448,7 @@ img {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   width: 100%;
-  height: 260px;
+  height: 180px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -459,7 +459,7 @@ img {
 
 .about-images .about-img-main {
   grid-column: span 2;
-  height: 300px;
+  height: 220px;
 }
 
 .about-text h2 {
@@ -773,7 +773,7 @@ img {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  aspect-ratio: 1;
+  aspect-ratio: 16 / 10;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -796,7 +796,7 @@ img {
 
 .gallery-item.large {
   grid-column: span 2;
-  grid-row: span 2;
+  grid-row: span 1;
 }
 
 /* ========== BOOKING ========== */
