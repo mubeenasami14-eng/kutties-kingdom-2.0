@@ -1,6 +1,10 @@
 import Reveal from './Reveal'
 
-export default function Pricing() {
+interface PricingProps {
+  onNavigate?: () => void
+}
+
+export default function Pricing({ onNavigate }: PricingProps) {
   return (
     <section className="section pricing" id="pricing">
       <div className="container">
@@ -43,7 +47,12 @@ export default function Pricing() {
                   1 full hour of playtime
                 </li>
               </ul>
-              <a href="#booking" className="btn-primary">Book Your Slot</a>
+              <button
+                className="btn-primary"
+                onClick={onNavigate}
+              >
+                Book Your Slot
+              </button>
             </div>
           </Reveal>
 
@@ -73,7 +82,12 @@ export default function Pricing() {
                   Pay per game, no commitments
                 </li>
               </ul>
-              <a href="#booking" className="btn-primary">Add & Book Now</a>
+              <button
+                className="btn-primary"
+                onClick={onNavigate}
+              >
+                Add & Book Now
+              </button>
             </div>
           </Reveal>
         </div>

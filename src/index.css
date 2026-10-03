@@ -1686,3 +1686,413 @@ img {
   }
 }
 
+/* ========== APP SHELL ========== */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 64px;
+  padding-bottom: 72px;
+}
+
+.app-main {
+  flex: 1;
+  animation: viewFadeIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes viewFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== APP HEADER ========== */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.app-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  padding-top: calc(12px + env(safe-area-inset-top, 0px));
+}
+
+.app-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.app-header-crown {
+  font-size: 1.6rem;
+  filter: drop-shadow(0 2px 4px rgba(255, 107, 53, 0.3));
+}
+
+.app-header-name {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.app-header-call {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--success);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(6, 214, 160, 0.3);
+}
+
+.app-header-call:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(6, 214, 160, 0.4);
+}
+
+/* ========== SPLASH SCREEN ========== */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: splashFadeOut 0.5s ease 1.7s forwards;
+}
+
+@keyframes splashFadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.splash-content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  animation: splashContentIn 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes splashContentIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.splash-crown {
+  font-size: 5rem;
+  animation: crownBounce 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes crownBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.splash-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 12px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.splash-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-top: 8px;
+}
+
+.splash-loader {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.splash-loader span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: loaderBounce 1.4s ease-in-out infinite;
+}
+
+.splash-loader span:nth-child(2) { animation-delay: 0.2s; }
+.splash-loader span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes loaderBounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1.2); opacity: 1; }
+}
+
+.splash-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  background: white;
+  animation: float 6s ease-in-out infinite;
+}
+
+.splash-shape-1 { width: 120px; height: 120px; top: 10%; left: 10%; }
+.splash-shape-2 { width: 80px; height: 80px; top: 70%; right: 15%; animation-delay: 1s; }
+.splash-shape-3 { width: 60px; height: 60px; bottom: 15%; left: 20%; animation-delay: 2s; }
+.splash-shape-4 { width: 100px; height: 100px; top: 30%; right: 10%; animation-delay: 0.5s; }
+
+/* ========== HOME ACTIONS ========== */
+.home-actions {
+  padding: 24px 0;
+  background: var(--neutral-50);
+}
+
+.home-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.home-action-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.home-action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.home-action-orange { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; }
+.home-action-teal { background: linear-gradient(135deg, var(--secondary), var(--secondary-dark)); color: white; }
+.home-action-yellow { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--neutral-800); }
+
+.home-action-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.home-action-text {
+  flex: 1;
+}
+
+.home-action-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.home-action-desc {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  font-weight: 600;
+}
+
+.home-action-arrow {
+  font-size: 1.5rem;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+/* ========== SCREEN BANNERS ========== */
+.screen-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding: 40px 24px;
+  text-align: center;
+  color: white;
+  margin-top: -1px;
+}
+
+.screen-banner-book {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+}
+
+.screen-banner-contact {
+  background: linear-gradient(135deg, #2A9D8F 0%, #264653 100%);
+}
+
+.screen-banner-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.screen-banner-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* ========== SCREEN CTA ========== */
+.screen-cta {
+  text-align: center;
+  padding: 60px 24px;
+  background: var(--neutral-50);
+}
+
+.screen-cta h3 {
+  font-size: 1.8rem;
+  color: var(--neutral-800);
+  margin-bottom: 8px;
+}
+
+.screen-cta p {
+  color: var(--neutral-600);
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.screen-cta .btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.screen-cta .btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+/* ========== BOTTOM NAV (always visible in app mode) ========== */
+.bottom-nav {
+  display: flex;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+}
+
+.bottom-nav-item {
+  background: transparent;
+  border: none;
+  position: relative;
+}
+
+.bottom-nav-indicator {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
+.bottom-nav-call {
+  text-decoration: none;
+}
+
+/* ========== APP FOOTER ========== */
+.app-footer {
+  background: var(--neutral-900);
+  color: var(--neutral-400);
+  padding: 48px 24px 32px;
+  text-align: center;
+}
+
+.app-footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.app-footer-tagline {
+  color: var(--neutral-400);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.app-footer-contacts {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.app-footer-contacts a {
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.app-footer-contacts a:hover {
+  text-decoration: underline;
+}
+
+.app-footer-address {
+  font-size: 0.85rem;
+  color: var(--neutral-500);
+  margin-bottom: 16px;
+}
+
+.app-footer-credit {
+  font-size: 0.8rem;
+  color: var(--neutral-600);
+  padding-top: 16px;
+  border-top: 1px solid var(--neutral-800);
+}
+
+/* ========== REMOVE OLD NAVBAR/BANNER STYLES (overridden by app shell) ========== */
+.navbar, .banner {
+  display: none !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .home-actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header-name {
+    font-size: 1.15rem;
+  }
+
+  .splash-title {
+    font-size: 2rem;
+  }
+
+  .screen-banner-title {
+    font-size: 1.6rem;
+  }
+
+  .bottom-nav-label {
+    font-size: 0.65rem;
+  }
+
+  .bottom-nav-icon {
+    font-size: 1.2rem;
+  }
+
+  .call-fab {
+    bottom: 80px;
+    right: 20px;
+  }
+}
+
+

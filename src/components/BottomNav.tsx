@@ -1,49 +1,35 @@
-import { useEffect, useState } from 'react'
+import { AppView } from '../App'
 
-const tabs = [
-  { label: 'Home', icon: '🏠', href: '#home' },
-  { label: 'Games', icon: '🎮', href: '#games' },
-  { label: 'Book', icon: '📅', href: '#booking' },
-  { label: 'Call', icon: '📞', href: 'tel:7829807717' },
-  { label: 'Visit', icon: '📍', href: '#contact' },
+interface BottomNavProps {
+  active: AppView
+  onNavigate: (v: AppView) => void
+}
+
+const tabs: { view: AppView; label: string; icon: string }[] = [
+  { view: 'home', label: 'Home', icon: '🏠' },
+  { view: 'games', label: 'Games', icon: '🎮' },
+  { view: 'book', label: 'Book', icon: '📅' },
+  { view: 'contact', label: 'Visit', icon: '📍' },
 ]
 
-export default function BottomNav() {
-  const [active, setActive] = useState('#home')
-
-  useEffect(() => {
-    const sections = tabs
-      .filter((t) => t.href.startsWith('#'))
-      .map((t) => ({ id: t.href, el: document.querySelector(t.href) }))
-      .filter((s) => s.el !== null)
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive('#' + entry.target.id)
-          }
-        })
-      },
-      { threshold: 0.3 }
-    )
-
-    sections.forEach((s) => observer.observe(s.el!))
-    return () => observer.disconnect()
-  }, [])
-
+export default function BottomNav({ active, onNavigate }: BottomNavProps) {
   return (
     <nav className="bottom-nav">
       {tabs.map((tab) => (
-        <a
-          key={tab.href}
-          href={tab.href}
-          className={`bottom-nav-item ${active === tab.href ? 'bottom-nav-active' : ''}`}
+        <button
+          key={tab.view}
+          className={`bottom-nav-item ${active === tab.view ? 'bottom-nav-active' : ''}`}
+          onClick={() => onNavigate(tab.view)}
         >
           <span className="bottom-nav-icon">{tab.icon}</span>
           <span className="bottom-nav-label">{tab.label}</span>
-        </a>
+          {active === tab.view && <span className="bottom-nav-indicator"></span>}
+        </button>
       ))}
+      <a href="tel:7829807717" className="bottom-nav-item bottom-nav-call">
+        <span className="bottom-nav-icon">📞</span>
+        <span className="bottom-nav-label">Call</span>
+      </a>
     </nav>
   )
 }

@@ -1,4 +1,10 @@
-export default function Hero() {
+import { AppView } from '../App'
+
+interface HeroProps {
+  onNavigate: (v: AppView) => void
+}
+
+export default function Hero({ onNavigate }: HeroProps) {
   return (
     <section className="hero" id="home">
       <div className="hero-bg">
@@ -26,8 +32,8 @@ export default function Hero() {
           Ball house, slides, trampoline, arcade games and so much more fun.
         </p>
         <div className="hero-buttons">
-          <a href="#booking" className="btn-primary">Book Your Slot</a>
-          <a href="#games" className="btn-secondary">Explore Games</a>
+          <button className="btn-primary" onClick={() => onNavigate('book')}>Book Your Slot</button>
+          <button className="btn-secondary" onClick={() => onNavigate('games')}>Explore Games</button>
         </div>
 
         <div className="hero-stats">

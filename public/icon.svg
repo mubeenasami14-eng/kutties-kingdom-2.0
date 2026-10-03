@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#FF6B35"/>
+  <text x="256" y="200" font-size="180" text-anchor="middle" dominant-baseline="central">👑</text>
+  <text x="256" y="340" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">Kutties Kingdom</text>
+</svg>
